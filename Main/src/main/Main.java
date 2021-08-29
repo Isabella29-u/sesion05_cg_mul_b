@@ -1,9 +1,21 @@
 package main;
 
+import static java.lang.Math.*;
+import java.util.Scanner;
+
 public class Main
 {
 	public static void main(String[] args) {
-                Circunferencia circulo = new Circunferencia(new Coord());
+                Scanner leer = new Scanner(System.in);
+                int x = leer.nextInt();
+                Cuadrado cuadradito = new Cuadrado(new Coord (5,3),5);
+                cuadradito.Traslacion(new Coord(x,2));
+                
+               // double cuadrado;
+                
+                
+                //Circunferencia circulo = new Circun
+		// Defina y asigne dos objetos, un Cadrado y una Circunferferencia(new Coord());
                 
 		// Defina y asigne dos objetos, un Cadrado y una Circunferencia
 		// Solicite al usuario ingresar el valor de un vector de traslación 
@@ -15,6 +27,11 @@ public class Main
 
 class Coord {
     private int x, y;
+
+    public Coord(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     public int getX() {
         return x;
@@ -41,6 +58,10 @@ class Cuadrado {
         this.c = c;
         this.lado = lado;
     }
+
+    //public Cuadrado() {
+  //  }
+    
     public void Traslacion(Coord t) {  // Complete los parámetros requeridos
         c.setX(t.getX()+c.getX());
         c.setY(t.getY()+c.getY());
@@ -48,9 +69,15 @@ class Cuadrado {
     public void Escalado(int s) {  // Complete los parámetros requeridos
         lado = (int)(lado*(1+s/100.0f));
     }
-    public void Rotacion(Coord r, angle) {  // Complete los parámetros requeridos
-        c.setX();
-        c.setY();
+    public void Rotacion(Coord r, float angle) {  // Complete los parámetros requeridos
+        double d = sqrt(pow(r.getX()-0,2)+pow(r.getY()-0,2));
+        
+        int x = (int) (d*cos(angle));
+        int y = (int) (d*sin(angle));
+        
+        c.setX(x);
+        c.setY(y);
+        
     }
 }
 
